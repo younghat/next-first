@@ -1,5 +1,6 @@
 // app/about/page.tsx
 import { Metadata } from "next";
+import Image from "next/image";
 export const metadata :Metadata= {
   title: {
    absolute:"About"
@@ -21,7 +22,7 @@ export default function AboutPage() {
           </div>
           <div className="col-md-6">
             <div className="about_img">
-              <img src="/images/about-img.png" alt="About" />
+              <Image src="/images/about-img.png" alt="About" />
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 
 import { Metadata } from "next";
-import Appointment from './homepage';
+import HomePageComponent from './homepage';
 
 
 export const metadata :Metadata= {
@@ -18,7 +18,7 @@ export default function HomePage() {
       
 
       {/* Appointment Section */}
-      <Appointment/>
+      <HomePageComponent/>
 
     
     </>

@@ -1,19 +1,9 @@
-'use client';
-import { useEffect } from 'react';
-import $ from 'jquery';
-import 'jquery-ui-dist/jquery-ui.css';
+
 import Image from 'next/image';
 import Link from 'next/link';
-
-export default function Appointment() {
-   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Dynamically import jquery-ui only on client side
-      import('jquery-ui/ui/widgets/datepicker').then(() => {
-        $('#datepicker').datepicker(); // ✅ Now safe
-      });
-    }
-  }, []);
+import AppointmentForm from './appointment';
+export default function HomePageComponent() {
+  
 
     return (
       <>
@@ -29,66 +19,7 @@ export default function Appointment() {
           </div>
         </div>
       </div>
-    <div className="appointment_section">
-            <div className="container">
-              <div className="appointment_box">
-                <div className="row">
-                  <div className="col-md-12">
-                    <h1 className="appointment_taital">Book <span style={{ color: '#0cb7d6' }}>Appointment</span></h1>
-                  </div>
-                </div>
-                <div className="appointment_section_2">
-                  <div className="row">
-                    <div className="col-md-4">
-                      <p className="doctorname_text">Patient Name</p>
-                      <input type="text" className="email_text" placeholder="" />
-                    </div>
-                    <div className="col-md-4">
-                      <p className="doctorname_text">Doctor's Name</p>
-                      <select className="form-control">
-                        <option>Normal distribution</option>
-                        <option>200</option>
-                        <option>300</option>
-                        <option>400</option>
-                        <option>500</option>
-                      </select>
-                    </div>
-                    <div className="col-md-4">
-                      <p className="doctorname_text">Department's Name</p>
-                      <select className="form-control">
-                        <option>Normal distribution</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-4">
-                      <p className="doctorname_text">Phone Number</p>
-                      <input type="text" className="email_text" placeholder="" />
-                    </div>
-                    <div className="col-md-4">
-                      <p className="doctorname_text">Department</p>
-                      <select className="form-control">
-                        <option>Normal distribution</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                    <div className="col-md-4">
-                      <p className="doctorname_text">Choose Date</p>
-                     <input type="text" className="email_text" placeholder="" id='datepicker' />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+   <AppointmentForm/>
             {/* About Section */}
       <div className="about_section layout_padding">
         <div className="container">

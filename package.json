@@ -13,6 +13,7 @@
     "jquery-ui": "^1.14.1",
     "jquery-ui-dist": "^1.13.3",
     "next": "15.3.3",
+    "nodemailer": "^7.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -22,6 +23,7 @@
     "@types/jquery": "^3.5.32",
     "@types/jqueryui": "^1.12.24",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
