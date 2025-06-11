@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     host: 'sandbox.smtp.mailtrap.io',
     port: 2525,
     auth: {
-      user: 'eaeca8a667cc0e', // replace this
+      user: 'eaeca8a667cc0e', 
       pass: 'ce83f8f0efa7d8', // replace this
     },
   });
@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   // 2. Construct email content
   const mailOptions = {
     from: '"Medwin Appointments" <bandanasuwal367@gmail.com>',
-    to: 'abc@gmail.com', // your receiving address
+    to: 'abc@gmail.com', 
     subject: 'New Appointment Request',
     text: `
       Patient Name: ${data.patientName}
