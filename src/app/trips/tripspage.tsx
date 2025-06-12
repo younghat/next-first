@@ -1,32 +1,11 @@
 
-'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { it } from 'node:test';
-import { useEffect, useState } from 'react';
-
-type TripItem = {
-  title: string;
-  url: string;
-  ID: number;
-  image:string;
-};
-
-export default function TripComponent() {
-    const [trip, setTrip] = useState<TripItem[]>([]);
-        useEffect(() => {
-        const fetchMenu = async () => {
-          try {
-            const res = await fetch('https://staging.excellenttrek.com/wp-json/list/trips');
-            const data = await res.json();
-            setTrip(data);
-          } catch (error) {
-            console.error('Error fetching menu:', error);
-          }
-        };
-    
-        fetchMenu();
-      }, []);
+import { getTripsItem } from '../lib/wordpress';
+export default async function TripComponent() {
+     const trip = await getTripsItem();
+      
   return (
     <>
       

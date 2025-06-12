@@ -1,30 +1,14 @@
-'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { getMenuItems } from './lib/wordpress';
 
-type MenuItem = {
-  title: string;
-  url: string;
-  ID: number;
-};
 
-export default function Header() {
-    const [menu, setMenu] = useState<MenuItem[]>([]);
-    useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const res = await fetch('https://staging.excellenttrek.com/wp-json/list/menus');
-        const data = await res.json();
-        setMenu(data);
-      } catch (error) {
-        console.error('Error fetching menu:', error);
-      }
-    };
 
-    fetchMenu();
-  }, []);
+
+export default async function Header() {
+    const menu = await getMenuItems();
+
   return (
     <>
       {/* Header Top */}
@@ -67,6 +51,11 @@ export default function Header() {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
+                   <li className="nav-item">
+             <Link className="nav-link" href="/home">
+                  Home
+            </Link>
+         </li>
                  {menu.map((item) => (
                   <li key={item.ID} className="nav-item">
                     <Link className="nav-link" href={item.url}>{item.title}</Link>
@@ -85,20 +74,20 @@ export default function Header() {
           <div className="custom_bg">
             <div className="custom_menu">
               <ul>
-                {/* <li className="nav-item">
-             <Link className="nav-link" href="/home">
+                <li className="nav-item">
+             <Link href="/home" className="nav-link" >
                   Home
             </Link>
-         </li> */}
-                {menu.slice(2).map((item, index) => (
-                <li key={index} className="nav-item">
+         </li>
+                {menu.slice(2).map((item) => (
+                <li key={item.ID} className="nav-item">
              <Link className="nav-link" href={item.url}>
           <span dangerouslySetInnerHTML={{ __html: item.title }} />
             </Link>
          </li>
           ))}
           <li className="nav-item">
-             <Link className="nav-link" href="/trips">
+             <Link href="/trips" className="nav-link" >
                   Trips
             </Link>
          </li>

@@ -1,7 +1,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import AppointmentForm from './appointment';
+import TripPage from '../trips/page';
+import BookTripForm from './booktrip';
 export default function HomePageComponent() {
   
 
@@ -19,7 +20,7 @@ export default function HomePageComponent() {
           </div>
         </div>
       </div>
-   <AppointmentForm/>
+   <BookTripForm/>
             {/* About Section */}
       <div className="about_section layout_padding">
         <div className="container">
@@ -66,37 +67,8 @@ export default function HomePageComponent() {
         </div>
       </div>
 
-      {/* Doctors Section */}
-      <div className="doctores_section">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="doctores_taital">Our Doctors</h1>
-            </div>
-          </div>
-          <div className="row">
-            {[1, 2, 3].map(i => (
-              <div className="col-md-4" key={i}>
-                <div className="doctores_box">
-                  <div className="image_1">
-                    <Image src={`/images/img-${i}.png`} alt={`Doctor ${i}`} width={300} height={300} />
-                  </div>
-                  <h4 className="humour_text">Doctor {i} <br /><span className="mbbs_text">MBBS</span></h4>
-                  <div className="social_icon">
-                    <ul>
-                      <li><a href="#"><i className="fa fa-facebook" /></a></li>
-                      <li><a href="#"><i className="fa fa-twitter" /></a></li>
-                      <li><a href="#"><i className="fa fa-linkedin" /></a></li>
-                      <li><a href="#"><i className="fa fa-instagram" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
+      {/* Trips Section */}
+      <TripPage/>
       {/* Testimonial Section */}
       <div className="testimonial_section layout_padding">
         <div className="container">

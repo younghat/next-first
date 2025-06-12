@@ -66,7 +66,7 @@ export default function AppointmentForm() {
             <div className="row">
               <div className="col-md-12">
                 <h1 className="appointment_taital">
-                  Book <span style={{ color: '#0cb7d6' }}>Trips</span>
+                  Book <span style={{ color: '#0cb7d6' }}>Appointment</span>
                 </h1>
               </div>
             </div>
