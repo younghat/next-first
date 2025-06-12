@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 type MenuItem = {
   title: string;
   url: string;
+  ID: number;
 };
 
 export default function Header() {
@@ -14,7 +15,7 @@ export default function Header() {
     useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const res = await fetch('/api/menu');
+        const res = await fetch('https://staging.excellenttrek.com/wp-json/list/menus');
         const data = await res.json();
         setMenu(data);
       } catch (error) {
@@ -66,11 +67,16 @@ export default function Header() {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
-                 {menu.map((item, index) => (
-                  <li key={index} className="nav-item">
+                 {menu.map((item) => (
+                  <li key={item.ID} className="nav-item">
                     <Link className="nav-link" href={item.url}>{item.title}</Link>
                   </li>
                 ))}
+                 <li className="nav-item">
+             <Link className="nav-link" href="/trips">
+                  Trips
+            </Link>
+         </li>
               </ul>
             </div>
           </nav>
@@ -79,11 +85,23 @@ export default function Header() {
           <div className="custom_bg">
             <div className="custom_menu">
               <ul>
-                 {menu.map((item, index) => (
-                  <li key={index} className="nav-item">
-                    <Link className="nav-link" href={item.url}>{item.title}</Link>
-                  </li>
-                ))}
+                {/* <li className="nav-item">
+             <Link className="nav-link" href="/home">
+                  Home
+            </Link>
+         </li> */}
+                {menu.slice(2).map((item, index) => (
+                <li key={index} className="nav-item">
+             <Link className="nav-link" href={item.url}>
+          <span dangerouslySetInnerHTML={{ __html: item.title }} />
+            </Link>
+         </li>
+          ))}
+          <li className="nav-item">
+             <Link className="nav-link" href="/trips">
+                  Trips
+            </Link>
+         </li>
               </ul>
             </div>
             <div className="search_btn">
