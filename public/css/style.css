@@ -799,6 +799,18 @@ p.doctorname_text {
     top: -30px;
     position: relative;
 }
+.image_2{
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image_2 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
 
 .humour_text {
     width: 100%;
