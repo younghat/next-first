@@ -5,8 +5,17 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
    images: {
-    domains: ['staging.excellenttrek.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'staging.excellenttrek.com',
+        port: '',
+        pathname: '/wp-content/uploads/2021/05/**',
+        search: '',
+      },
+    ],
   },
+   
 };
 
 export default nextConfig;

@@ -30,7 +30,7 @@ export default async function TripComponent() {
                         
                     />
                         </div>
-                  <h4 className="humour_text"><Link href={item.url} className='humour_text'>{item.title}</Link></h4>
+                  <h4 className="humour_text"><Link href={`/trips/${item.title}`} className='humour_text'>{item.title}</Link></h4>
                   <div className="social_icon">
                     <ul>
                       <li><a href="#"><i className="fa fa-facebook" /></a></li>
