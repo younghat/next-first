@@ -18,7 +18,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const data = await getTripsItem();
-  const activities=(await params).activities;
+  const activities = (await params).activities;
   const match = data.find((item: any) => slugify(item.title) === activities);
 
   const title = match?.title || 'Trip Not Found';
@@ -37,10 +37,25 @@ export async function generateMetadata(
       title,
       description,
       url: pageUrl,
-      images: [ogImage, ...previousImages],
+      siteName: "Excellent Himalaya Trek & Expedition",
+      locale: "en_US",
+      type: "article",
+      images: [
+        {
+          url: ogImage,
+          width: 400,
+          height: 266,
+          type: "image/jpeg"
+        },
+        ...previousImages
+      ]
     },
+    other: {
+      "article:modified_time": "2021-05-28T06:31:22+00:00"
+    }
   };
 }
+
 
 // Page component
 export default async function Activitydetails({ params }: Props) {
